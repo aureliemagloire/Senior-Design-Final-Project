@@ -9,33 +9,7 @@ The core innovation is the Avatar System: every time you complete a Pomodoro ses
 
 Pomodoro Timer — Customizable work/break intervals with notifications
 
-Idle Keyboard/Mouse Checker — Detects inactivity and prompts users to refocus
-
-Site Blocker — Blocks distracting websites during focus sessions
-
-Sticky Notes — Draggable notes for quick reference within the extension
-
-Todo List — Add, edit, complete, and prioritize tasks
-
-Calendar 
-
-Calculator — A built-in calculator for quick math without leaving the browser
-
-Thesaurus & Dictionary — Instant access to definitions, synonyms, and antonyms via API integration
-
-Digital Avatar — Choose from a selection of avatars
-
-Brain Points System — Earn points by completing Pomodoro sessions and finishing tasks
-
-Avatar Interactions:
-
-Feed — Spend points to keep your avatar healthy
-
-Play — Mini-games to boost happiness
-
-Pet — Simple click interactions for affection
-
-Themes — Customizable UI themes (Light, Dark, Custom) to match user preference
+More to come!
 
 # Tech Stack
 Frontend	HTML5, CSS3, JavaScript, React
