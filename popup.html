@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Study Bud</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <img src="catpic.png" alt="study buddy" class="avatar" />
+      <div class="points"><span id="points">0</span> brain points</div>
+    </header>
+
+    <main>
+      <p id="mode-label" class="mode">Ready</p>
+      <div id="time" class="time">25:00</div>
+      <div class="bar"><div id="bar-fill" class="bar__fill"></div></div>
+
+      <div class="buttons">
+        <button id="start" class="primary">Start focus session</button>
+        <button id="stop" class="secondary" hidden>Stop</button>
+      </div>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
