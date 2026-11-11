@@ -23,6 +23,10 @@ External APIs	Canvas LMS API, Free Dictionary API, Thesaurus API
 # Usage
 
 
-
-
+# Installation 
+Clone or Download the repository
+Open Chrome and navigate to chrome://extensions/
+Enable Developer Mode (toggle in the top right)
+Click Load unpacked and select the extension's directory
+The extension should now be available in your Chrome toolbar
 
