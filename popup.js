@@ -11,7 +11,8 @@ const els = {
   points: document.getElementById('points'),
   start: document.getElementById('start'),
   stop: document.getElementById('stop'),
-  fill: document.getElementById('bar-fill')
+  fill: document.getElementById('bar-fill'),
+  skip: document.getElementById('skip')
 };
 
 let timer = { mode: 'idle', endTime: null, durationMs: 0 };
@@ -33,6 +34,7 @@ function render() {
     els.fill.style.width = '0%';
     els.start.hidden = false;
     els.stop.hidden = true;
+    els.skip.hidden = true;
     return;
   }
 
@@ -43,6 +45,7 @@ function render() {
   els.fill.style.width = `${Math.min(100, (elapsed / timer.durationMs) * 100)}%`;
   els.start.hidden = true;
   els.stop.hidden = false;
+  els.skip.hidden = timer.mode !== 'break';
 }
 
 async function loadState() {
@@ -54,6 +57,7 @@ async function loadState() {
 
 els.start.addEventListener('click', () => chrome.runtime.sendMessage({ type: 'START_FOCUS' }));
 els.stop.addEventListener('click', () => chrome.runtime.sendMessage({ type: 'STOP' }));
+els.skip.addEventListener('click', () => chrome.runtime.sendMessage({ type: 'STOP'}));
 
 // Update instantly when the background changes state
 chrome.storage.onChanged.addListener((changes, area) => {
