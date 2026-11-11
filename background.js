@@ -13,8 +13,7 @@ const BLOCKED_SITES = [
 ];
 const RULE_ID = 1;
 
-// Minutes. For quick testing set focus to 0.5 (alarms under 1 minute work
-// in unpacked extensions; packaged ones have a 30-second minimum).
+// Minutes. For quick testing set focus to 0.5 (packaged extension alarms have a 30-second minimum).
 const DURATIONS = { focus: 0.5, break: 5 };
 
 chrome.runtime.onInstalled.addListener(async () => {
@@ -81,7 +80,7 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
     const { brainPoints = 0 } = await chrome.storage.local.get('brainPoints');
     await chrome.storage.local.set({ brainPoints: brainPoints + POINTS_PER_FOCUS });
     notify('Focus session complete!', `+${POINTS_PER_FOCUS} brain points. Time for a break.`);
-    await startTimer('break'); // site blocker will be turned off here 
+    await startTimer('break'); // startTimer turns site blocker off
   } else if (timer?.mode === 'break') {
     notify('Break is over', 'Ready for another focus session?');
     await stopTimer();

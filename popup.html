@@ -2,15 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Bud</title>
     <link rel="stylesheet" href="popup.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
-    <header>
+    <!-- Header: avatar and brain points -->
+    <header> 
       <img src="catpic.png" alt="study buddy" class="avatar" />
-      <div class="points"><span id="points">0</span> brain points</div>
+      <div class="points"><span id="points">0</span> brain points
     </header>
 
+    <div class="container">
+
+        <div class="header">
+            <h1 style="text-align: center; margin: 0;">To-Do</h1>
+        </div>
+
+        <div class="input-container">
+            <input
+                type="text"
+                id="todo-input"
+                placeholder="Write your task..."
+            >
+
+            <button id="add-btn" type="button">
+                <img
+                    src="icons/add.png"
+                    alt="Add"
+                    class="icon-btn"
+                    width="20"
+                    height="20"
+                >
+            </button>
+        </div>
+
+        <!-- Tasks will appear here -->
+        <div id="todo-list"></div>
+
+    </div>
+
+    <!-- focus timer -->
     <main>
       <p id="mode-label" class="mode">Ready</p>
       <div id="time" class="time">25:00</div>

@@ -12,6 +12,15 @@
   },
   "permissions": [
     "alarms", "storage", "notifications", "declarativeNetRequest"
+  ],
+  "web_accessible_resources": [{
+
+    "resources": [
+      "fonts/*",
+      "icons/*"
+    ],
+    "matches": ["<all_urls>"]
+  }
   ]
 
 }
