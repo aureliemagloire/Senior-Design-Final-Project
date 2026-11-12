@@ -1,60 +1,103 @@
+
+Popup · CSS
+/* Custom font from the To-Do-Extension repo (optional: falls back to Arial) */
+@font-face {
+  font-family: 'ah';
+  src: url('fonts/ah.otf') format('opentype');
+}
+ 
 :root {
   --bg: #eef3f8;
   --ink: #1d2b3a;
+  --muted: #55677a;
   --focus: #2f6f8f;
   --break: #5a9a6b;
   --track: #d3dee8;
 }
-
-* {
-  box-sizing: border-box;
-}
-
+ 
+* { box-sizing: border-box; }
+ 
 body {
-  width: 300px;
+  width: 320px;
   margin: 0;
-  padding: 16px;
+  padding: 12px;
   background: var(--bg);
   color: var(--ink);
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
-
-
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
  
-.avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+[hidden] { display: none !important; }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+ 
+/* header */
+header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
 .points { font-size: 14px; font-weight: 600; }
  
-main { text-align: center; margin-top: 12px; }
-.mode { margin: 0; font-size: 14px; }
- 
-.time {
-  font-size: 56px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  margin: 4px 0 12px;
+/* notepad to-do */
+.container {
+  background: #fff8dc;
+  border-radius: 12px;
+  padding: 10px 12px 12px;
+  font-family: 'ah', Arial, sans-serif;
 }
+.header { padding-bottom: 5px; border-bottom: 1px solid #ddd; }
+.header h1 { margin: 0; text-align: center; font-size: 22px; }
+ 
+.input-container { display: flex; align-items: center; gap: 4px; margin-top: 8px; }
+#todo-input {
+  flex: 1; min-width: 0; padding: 4px; font-size: 16px; font-family: inherit;
+  background: transparent; border: 0; border-bottom: 2px solid #333; border-radius: 0; color: #333;
+}
+ 
+.icon-btn {
+  display: flex; align-items: center; justify-content: center;
+  padding: 2px; margin: 0; background: transparent; border: 0; cursor: pointer;
+}
+.icon { width: 20px; height: 20px; }
+ 
+.hint { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+ 
+#todo-list { margin-top: 6px; max-height: 150px; overflow-y: auto; }
+.todo-item {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 4px; border-bottom: 1px solid #ddd;
+}
+.todo-item--current { background: #fff0b3; border-left: 4px solid var(--focus); }
+.todo-item--done .todo-text { flex: 1; text-decoration: line-through; opacity: 0.6; }
+ 
+.todo-select { flex: 1; display: flex; align-items: center; gap: 8px; min-width: 0; cursor: pointer; }
+.todo-text { font-size: 18px; color: #333; overflow-wrap: anywhere; }
+.todo-edit-input {
+  flex: 1; min-width: 0; padding: 4px; font-size: 16px; font-family: inherit;
+  background: transparent; border: 0; border-bottom: 2px solid #333; color: #333;
+}
+.todo-done-btn {
+  border: 0; border-radius: 6px; padding: 4px 8px; font-size: 12px; font-weight: 600;
+  background: var(--track); color: var(--ink); cursor: pointer;
+}
+ 
+/* timer */
+main { text-align: center; margin-top: 12px; }
+.current-task { margin: 0 0 6px; font-size: 14px; }
+.current-task__label { display: block; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+.current-task__name { font-weight: 600; overflow-wrap: anywhere; }
+.current-task__name.is-empty { color: var(--muted); font-weight: 400; font-style: italic; }
+ 
+.mode { margin: 0; font-size: 14px; }
+.time { font-size: 48px; font-weight: 700; font-variant-numeric: tabular-nums; margin: 2px 0 8px; }
  
 .bar { height: 8px; background: var(--track); border-radius: 4px; overflow: hidden; }
 .bar__fill { height: 100%; width: 0; background: var(--focus); }
 body.break .bar__fill { background: var(--break); }
  
-.buttons { display: flex; gap: 8px; margin-top: 16px; }
-button {
-  flex: 1;
-  padding: 10px;
-  border: 0;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
+.buttons { display: flex; gap: 8px; margin-top: 12px; }
+.buttons button {
+  flex: 1; padding: 10px; border: 0; border-radius: 8px;
+  font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
 }
-button:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
 .primary { background: var(--focus); color: #fff; }
 body.break .primary { background: var(--break); }
 .secondary { background: var(--track); color: var(--ink); }
-[hidden] { display: none !important; }
+ 

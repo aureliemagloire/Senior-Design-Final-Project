@@ -14,8 +14,8 @@
       <div class="points"><span id="points">0</span> brain points
     </header>
 
+    <!--Todo list: add task, select the one being worked on -->
     <div class="container">
-
         <div class="header">
             <h1 style="text-align: center; margin: 0;">To-Do</h1>
         </div>
@@ -25,35 +25,44 @@
                 type="text"
                 id="todo-input"
                 placeholder="Write your task..."
-            >
+                maxlength="80"
+            />
 
-            <button id="add-btn" type="button">
+            <button id="add-btn" type="button" class="icon-btn" aria-label="Add task">
                 <img
                     src="icons/add.png"
                     alt="Add"
                     class="icon-btn"
                     width="20"
                     height="20"
-                >
+                />
             </button>
         </div>
 
+        <p class="hint">Select task you're working on to start a focus session. </p>
+
         <!-- Tasks will appear here -->
-        <div id="todo-list"></div>
+        <div id="todo-list" role="radiogroup" aria-label=TODO"></div>
 
     </div>
 
     <!-- focus timer -->
     <main>
+      <p class="current-task">
+        <span class="current-task__label">Working on</span>
+        <span id="current-task-name" class="current-task__name">No task selected</span>
+      </p>
+      
       <p id="mode-label" class="mode">Ready</p>
       <div id="time" class="time">25:00</div>
       <div class="bar"><div id="bar-fill" class="bar__fill"></div></div>
 
       <div class="buttons">
         <button id="start" class="primary">Start focus session</button>
-        <button id="stop" class="secondary" hidden>Stop</button>
         <button id="skip" class="primary" hidden>Skip break</button>
+        <button id="stop" class="secondary" hidden>Stop</button>
       </div>
+      <p id="start-hint" class="hint" hidden>Select a task to start.</p>
     </main>
 
     <script src="popup.js"></script>
